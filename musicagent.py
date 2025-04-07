@@ -1,7 +1,7 @@
 import os
 import sqlite3
 import re
-from dotenv import load_dotenv
+import streamlit as st  # ✅ for accessing secrets.toml
 from langgraph.graph import StateGraph, END
 from langchain_core.runnables import Runnable
 from langchain_core.tools import tool
@@ -9,18 +9,17 @@ from langchain_openai import AzureChatOpenAI
 from langchain_community.utilities import SerpAPIWrapper
 from typing import TypedDict, Optional, List, Tuple
 
-# Load env vars
-load_dotenv()
-
+# ✅ Use secrets from Streamlit's secure config
 llm = AzureChatOpenAI(
-    azure_endpoint=os.getenv("AZURE_ENDPOINT"),
-    api_key=os.getenv("AZURE_API_KEY"),
-    azure_deployment=os.getenv("DEPLOYMENT_NAME"),
+    azure_endpoint=st.secrets["AZURE_ENDPOINT"],
+    api_key=st.secrets["AZURE_API_KEY"],
+    azure_deployment=st.secrets["DEPLOYMENT_NAME"],
     api_version="2024-02-01",
     temperature=0
 )
 
-serp_api = SerpAPIWrapper(serpapi_api_key=os.getenv("SERP_API_KEY"))
+serp_api = SerpAPIWrapper(serpapi_api_key=st.secrets["SERP_API_KEY"])
+
 
 # --- Shared Utilities ---
 def query_database(title=None, artist=None):
