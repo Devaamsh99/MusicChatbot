@@ -1,0 +1,12 @@
+streamlit
+langgraph>=0.0.34
+langchain
+langchain-openai
+langchain-community
+openai
+python-dotenv
+pydantic
+requests
+tqdm
+fastapi
+uvicorn
