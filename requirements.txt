@@ -28,8 +28,6 @@ httpx
 toolz
 aiohttp
 
-# SQLite compatibility (built-in but add just in case)
-sqlite3
 
 # For compatibility with new LangChain packages
 typing-extensions
