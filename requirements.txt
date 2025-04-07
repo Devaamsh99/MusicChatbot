@@ -1,12 +1,35 @@
-streamlit
-langgraph>=0.0.34
+# Core
+langgraph
 langchain
-langchain-openai
 langchain-community
+langchain-openai
+
+# LLMs and Vector DBs
 openai
+tiktoken
+
+# Environment variable and config handling
 python-dotenv
 pydantic
-requests
-tqdm
+
+# Web search integration
+google-search-results  # Needed for SerpAPIWrapper
+
+# FastAPI (if needed elsewhere in your app)
 fastapi
 uvicorn
+
+# Streamlit frontend
+streamlit
+
+# Optional: Rich console logs and dev tools
+rich
+httpx
+toolz
+aiohttp
+
+# SQLite compatibility (built-in but add just in case)
+sqlite3
+
+# For compatibility with new LangChain packages
+typing-extensions
